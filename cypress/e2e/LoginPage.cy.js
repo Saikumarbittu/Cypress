@@ -1,5 +1,5 @@
 import { VerifyLoginUi,VerifyLoginvisit } from "../src/LoginPage.cy";
-import {Dashboardpageverify, Logout} from  "../src/MainPage.cy";
+import {Dashboardpageverify, Logout, Loginerror} from  "../src/MainPage.cy";
 
 
 describe('LoginPage', () => {
@@ -14,6 +14,9 @@ describe('LoginPage', () => {
           Dashboardpageverify(data.expected);
           cy.window().its('document.readyState').should('eq', 'complete');
           Logout();
+          cy.log("Logged out")//print in Cypress UI
+          cy.task('logMessage', "Logged out"); // Match the exact task name
+
         });
     });
     //Verify login with multiple creds
@@ -27,7 +30,8 @@ describe('LoginPage', () => {
         Logout()
 }
     else{
-        Logininvalidcheck(data2.expected);
+          Loginerror(data2.expected);
+        console.log("Verified error msg is showing :")
 
     }
          })

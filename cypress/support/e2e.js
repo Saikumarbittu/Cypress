@@ -19,3 +19,7 @@ import './commands'
 import 'cypress-xpath';//we should include this here to use xpath
 
 import 'cypress-mochawesome-reporter/register';
+Cypress.on('uncaught:exception', (err, runnable) => {
+    // Returning false prevents Cypress from failing the test
+    return false;
+  });

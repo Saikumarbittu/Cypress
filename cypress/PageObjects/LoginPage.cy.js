@@ -11,10 +11,6 @@ return cy.xpath("//input[@name='password']");
     return cy.xpath("//button[@type='submit']");
     }
 
-    Logininvaliderror(){
-     return   cy.get(".oxd-text.oxd-text--p.oxd-alert-content-text")
-    }
-
 forgetpwbtn(){
     return cy.xpath('//p[contains(., "Forgot Your Password?")]')
 }

@@ -28,10 +28,10 @@ module.exports = defineConfig({
       require('cypress-mochawesome-reporter/plugin')(on); //for html reports
        require("cypress-terminal-report/src/installLogsPrinter")(on);//captures logs from the browser and Node.js process, making debugging easier. It provides detailed logs of failed tests, network requests, console errors, and more.
        on('task', {
-        clearSession() {
-          console.log('Clearing session...');
-          return null; // Return `null` or `true` to signal success
-        }
+        logMessage(message) {
+          console.log(message); // This prints logs in the VS Code terminal
+          return null; // Returning `null` signals success
+        },
       });
     },
 

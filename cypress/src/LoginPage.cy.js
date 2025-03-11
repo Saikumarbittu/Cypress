@@ -20,7 +20,3 @@ export function ForgotPW(){
       Login_page.forgetpwbtn.click();
       console.log("Successfully clicked forgot password button")
 }
-export function Logininvalidcheck(expected){
-    Login_page.Logininvaliderror().should('have.text',expected);
-    console.log("Verified error msg is showing :"+Logininvaliderror)
-}
