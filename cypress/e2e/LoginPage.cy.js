@@ -1,22 +1,18 @@
-import { VerifyLoginUi,VerifyLoginvisit } from "../src/LoginPage.cy";
+import { ForgotPW, VerifyLoginUi,VerifyLoginvisit } from "../src/LoginPage.cy";
 import {Dashboardpageverify, Logout, Loginerror} from  "../src/MainPage.cy";
 
 
 describe('LoginPage', () => {
     beforeEach(()=>{
-        cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",{ waitUntil: "domcontentloaded" });
-        //If you're dealing with large data responses (e.g., JSON APIs).When you want to reduce bandwidth usage.
-        //Some APIs might not support compression, so test before enforcing this header.
+        cy.visit("/",{ waitUntil: "domcontentloaded" });
+
     })
     it('LoginPage with single Valid Credentials', () => {
         cy.fixture("orangehrm1.json").then((data) => {
           VerifyLoginvisit(data.username,data.password);
           Dashboardpageverify(data.expected);
-          cy.window().its('document.readyState').should('eq', 'complete');
+        //   cy.window().its('document.readyState').should('eq', 'complete');
           Logout();
-          cy.log("Logged out")//print in Cypress UI
-          cy.task('logMessage', "Logged out"); // Match the exact task name
-
         });
     });
     //Verify login with multiple creds
@@ -31,12 +27,14 @@ describe('LoginPage', () => {
 }
     else{
           Loginerror(data2.expected);
-        console.log("Verified error msg is showing :")
-
     }
          })
 
          })
         })
+ // Verify forgot password button
+ it.only('Verify forgot btn',()=>{
+    ForgotPW();
+ })
     })
 

@@ -2,6 +2,9 @@ const { defineConfig } = require("cypress");
 
 
 module.exports = defineConfig({
+
+
+
   defaultCommandTimeout: 40000,
   video: true,
   reporter: 'cypress-mochawesome-reporter', //for html reports
@@ -19,7 +22,7 @@ module.exports = defineConfig({
     },
   },
   e2e: {
-
+    baseUrl: "https://opensource-demo.orangehrmlive.com/",
     setupNodeEvents(on, config) {
       chromeWebSecurity: false,
       // implement node event listeners here

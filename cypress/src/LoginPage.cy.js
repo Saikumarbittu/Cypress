@@ -11,12 +11,22 @@ export function VerifyLoginUi(){
 }
 
 export function VerifyLoginvisit(email,password){
+    try{
     Login_page.emailbox().type(email);
     Login_page.Passwordbox().type(password);
     Login_page.submitbtn().click();
-    console.log("succsefully Login in page with email:"+email+"Password :"+password)
-}
+    cy.log("succsefully Login in page with email:"+email+"Password :"+password)
+    cy.log("Login Successful");
+    console.log("Login Successful");
+
+} catch (error) {
+cy.log("An error occurred during login: ", error.message);
+console.error("An error occurred during login: ", error);
+}}
+
 export function ForgotPW(){
-      Login_page.forgetpwbtn.click();
-      console.log("Successfully clicked forgot password button")
+      Login_page.forgetpwbtn().click();
+      cy.get('.oxd-text.oxd-text--h6.orangehrm-forgot-password-title').should('be.visible');
+      cy.url().should('contain', 'requestPassword')
+      console.log("Successfully clicked forgot password button & Verified page")
 }

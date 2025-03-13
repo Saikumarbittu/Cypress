@@ -27,16 +27,22 @@
 
 
 /// <reference types="cypress"/>
+/// <reference types="@faker-js/faker" />
 beforeEach(() => {
-    // Clear cookies, localStorage, and sessionStorage before each test
-    cy.clearCookies();
-   cy.clearLocalStorage();
-    cy.window().then((window) => {
-     window.sessionStorage.clear();
-        // run these tests as if in a desktop
-        // browser with a 720p monitor
+
         cy.viewport(1280 , 720);
 
     });
+    afterEach(()=>{
+       // Clear cookies, localStorage, and sessionStorage before each test
+    cy.clearCookies();
+    cy.clearLocalStorage();
+     cy.window().then((window) => {
+      window.sessionStorage.clear();
+         // run these tests as if in a desktop
+         // browser with a 720p monitor
+    })
   });
+
+
 

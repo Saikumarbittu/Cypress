@@ -12,6 +12,6 @@ return cy.xpath("//input[@name='password']");
     }
 
 forgetpwbtn(){
-    return cy.xpath('//p[contains(., "Forgot Your Password?")]')
+    return cy.get('.oxd-text.oxd-text--p.orangehrm-login-forgot-header')
 }
 }export default LoginPageLocators
