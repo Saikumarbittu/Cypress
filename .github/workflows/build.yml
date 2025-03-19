@@ -13,7 +13,7 @@ jobs:
         with:
           browser : chrome
 
-      - name: Cypress Test Report
+      - name: HTML reports
         uses: actions/upload-artifact@v3
         with:
             name: MochaAwesome HTML Reports
