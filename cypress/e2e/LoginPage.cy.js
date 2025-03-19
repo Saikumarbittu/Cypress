@@ -6,12 +6,13 @@ describe('LoginPage', () => {
     beforeEach(()=>{
         cy.visit("/",{ waitUntil: "domcontentloaded" });
 
+
     })
     it('LoginPage with single Valid Credentials', () => {
         cy.fixture("orangehrm1.json").then((data) => {
           VerifyLoginvisit(data.username,data.password);
           Dashboardpageverify(data.expected);
-        //   cy.window().its('document.readyState').should('eq', 'complete');
+        //cy.window().its('document.readyState').should('eq', 'complete');
           Logout();
         });
     });

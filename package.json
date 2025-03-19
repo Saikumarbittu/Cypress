@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+  "test:Loginpage": "npx cypress run --spec cypress/e2e/LoginPage.cy.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Saikumar",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "@faker-js/faker": "^9.6.0",
     "cypress": "^14.1.0",
@@ -18,5 +18,15 @@
   "dependencies": {
     "cypress-mochawesome-reporter": "^3.8.2",
     "xlsx": "^0.18.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saikumarbittu/Cypress.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Saikumarbittu/Cypress/issues"
+  },
+  "homepage": "https://github.com/Saikumarbittu/Cypress#readme",
+  "description": ""
 }
