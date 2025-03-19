@@ -12,7 +12,9 @@ jobs:
         uses: cypress-io/github-action@v6
 
 
-      - uses: actions/upload-artifact@v4
+      - name : Html Reports
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: my-artifact
            # or path/to/artifact
