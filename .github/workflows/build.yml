@@ -16,5 +16,5 @@ jobs:
         with:
           name: my-artifact
            # or path/to/artifact
-            path: cypress/reports/html
+          path: cypress/reports/html
 
