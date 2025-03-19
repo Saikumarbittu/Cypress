@@ -12,9 +12,9 @@ jobs:
         uses: cypress-io/github-action@v6
 
 
-      - name: HTML reports
-        uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
-            name: MochaAwesome HTML Reports
+          name: my-artifact
+           # or path/to/artifact
             path: cypress/reports/html
 
