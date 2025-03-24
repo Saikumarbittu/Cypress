@@ -1,22 +1,29 @@
 name: Regression
-on: push
+on:
+  push:
+    branches:
+      - main
+      - test
 jobs:
   cypress-run:
     runs-on: ubuntu-24.04
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
-      - name: Cypress run
+      - name: Install Dependencies
+        run: npm install
+      - name:  Run Cypress Tests
         uses: cypress-io/github-action@v6
+        with:
+         browser: chrome
 
-
-      - name : Html Reports
+      - name: Generate  Html Reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: my-artifact
+          name: My-TestCases
            # or path/to/artifact
           path: cypress/reports/html
 
