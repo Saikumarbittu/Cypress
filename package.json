@@ -2,9 +2,10 @@
   "name": "cypress",
   "version": "1.0.0",
   "main": "index.js",
+  "cy:cloud": "npx cypress run --spec 'cypress/e2e/LoginPage' --record --key b35919a9-4d3e-4c13-ad75-431ebad26df0"
   "scripts": {
   "test:Loginpage": "npx cypress run --spec cypress/e2e/LoginPage.cy.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no swtest specified\" && exit 1"
   },
   "author": "Saikumar",
   "license": "ISC",

@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+
+    environment {
+        CYPRESS_CACHE_FOLDER = "${env.WORKSPACE}/.cache/Cypress"
+    }
+    stages {
+
+        stage('Checkout') {
+            steps {
+                echo 'Cloning Repository...'
+                git branch: 'main', url: 'https://github.com/your-repo.git'
+            }
+        }
+
+        stage('Install Node.js and Cypress') {
+            steps {
+                echo 'Installing Node.js and Cypress...'
+                bat 'npm install' // Install dependencies
+            }
+        }
+
+        stage('Run Cypress Tests') {
+            steps {
+                echo 'Running Cypress Tests...'
+                bat 'npx cypress run'
+            }
+        }
+
+        stage('Archive Test Results') {
+            steps {
+                echo 'Archiving test results...'
+                archiveArtifacts artifacts: 'cypress/videos/**, cypress/screenshots/**', allowEmptyArchive: true
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Cleaning up Workspace...'
+            cleanWs()
+        }
+        success {
+            echo 'Build and Tests Successful!'
+        }
+        failure {
+            echo 'Build or Tests Failed. Check logs for details.'
+        }
+    }
+}
+
