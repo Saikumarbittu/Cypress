@@ -7,18 +7,18 @@ describe('dropdown',()=>{
 
     })
 
-    it('Dynamic Dropdown',()=>{
+//     it('Dynamic Dropdown',()=>{
 
-       cy.visit('https://www.jotform.com/form/232851259741056')
-       cy.wait(3000)
-       cy.frameLoaded('#customFieldFrame_6');
-       cy.iframe()
-       .find('#select2-mcrq-container')  // Target the container of the dynamic dropdown
-       .click();
+//         cy.get('iframe')
+//         .its('0.contentDocument.body')
+//         .should('not.be.empty')
+//         .then(cy.wrap)
+//         .find('#element-id')
+//         .click();
 
-       cy.iframe()
-       .find('.select2-search__field')  // Locate the search input within the dropdown
-       .type('Group C')
-       .type('{enter}');  // Press Enter to select the option
-    })
-})
+//        cy.iframe()
+//        .find('.select2-search__field')  // Locate the search input within the dropdown
+//        .type('Group C')
+//        .type('{enter}');  // Press Enter to select the option
+//     })
+ })

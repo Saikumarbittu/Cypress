@@ -34,7 +34,7 @@ describe('LoginPage', () => {
          })
         })
  // Verify forgot password button
- it.only('Verify forgot btn',()=>{
+ it('Verify forgot btn',()=>{
     ForgotPW();
  })
     })
