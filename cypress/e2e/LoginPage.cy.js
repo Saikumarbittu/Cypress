@@ -4,7 +4,7 @@ import {Dashboardpageverify, Logout, Loginerror} from  "../src/MainPage.cy";
 
 describe('LoginPage', () => {
     beforeEach(()=>{
-        cy.visit("/",{ waitUntil: "domcontentloaded" });
+        cy.visit("https://www.naukri.com/nlogin/login",{ waitUntil: "domcontentloaded" });
 
 
     })

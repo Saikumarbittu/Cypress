@@ -33,7 +33,7 @@ beforeEach(() => {
         cy.viewport(1280 , 720);
 
     });
-    afterEach(()=>{
+    beforeEach(()=>{
        // Clear cookies, localStorage, and sessionStorage before each test
     cy.clearCookies();
     cy.clearLocalStorage();
